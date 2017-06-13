@@ -1,10 +1,10 @@
 # Angular experiment
 
-Simple "hello world" application from angular cli generated application.
+Simple "hello world" application from _angular-cli_ generated application.
 
-This documentation explains step by step how to obtain improved performances based on two different concept : ahead of time compilation and compression.
+This documentation explains step by step how to obtain improved performances based on two different concepts: ahead of time compilation and compression.
 
-This work is an assignement given to Nicolas Picavet during a traineeship at [IMAG](https://im2ag.univ-grenoble-alpes.fr/) Grenoble, taking part into [IIHM team](http://iihm.imag.fr/en/) with Alexandre Demeure as tutor.
+This work is an assignement given to Nicolas Picavet during his traineeship at [LIG](https://www.liglab.fr/), integrated in [IIHM team](http://iihm.imag.fr/en/) with Alexandre Demeure as tutor.
 
 ## Environment
 
@@ -13,27 +13,27 @@ This work is an assignement given to Nicolas Picavet during a traineeship at [IM
 - [angular-cli](https://www.npmjs.com/package/angular-cli)
 - [webpack](https://webpack.js.org/)
 
-## How to reproduce test code
+## How to reproduce the test code
 
 `ng new angular-experiment` or git clone this repo
 
 ## Experiments
 
-There are severals bundles built during compilation :
+There are several bundles built during compilation:
 
-* _polyfills.bundle.js_ : browser compatibility
-* _styles.bundle.js_ : stylesheets
-* _main.bundle.js_ : application
-* _vendor.bundle.js_ : Angular librairies
-* _inline.bundle.js_ : Webpack loader utilities
+* _polyfills.bundle.js_: browser compatibility
+* _styles.bundle.js_: stylesheets
+* _main.bundle.js_: application
+* _vendor.bundle.js_: Angular librairies
+* _inline.bundle.js_: Webpack loader utilities
 
-To simplify the comparaison we will be talking only about the _main_ and _vendor_ bundles here.
+To simplify the comparison we will be dealing only with the _main_ and _vendor_ bundles here.
 
 ### Developement compilation
 
 `ng serve`
 
-Command from Angular-cli allowing to start a webserver containing developed application, default http://localhost:4200/.
+Command from _angular-cli_ allowing to start a webserver containing the developed application, default http://localhost:4200/.
 
 ```
 Generated
@@ -45,17 +45,17 @@ main        6.3 kB
 vendor  2 400.0 kB
 ```
 
-### Production : AOT & tree shaking
+### Production : AOT & tree-shaking
 
 `ng serve --prod`
 
-Specifying production argument allow developer for further testing and debuging in a production-like environment.
+Specifying production arguments allows developers to test and debug further in a production-like environment.
 
-It uses ahead of time compilation and also include tree shaking concept removing unused modules never imported.
-AOT compilation allow
-- smaller angular framework download size because the compiler is not packaged
-- faster rendering since the client does not have to wait the application to compile
-- inlining html template and CSS style sheets reducing request to those files
+It uses ahead-of-time (AOT) compilation and also includes the tree-shaking concept removing never imported unused modules.
+AOT compilation allows
+- smaller angular framework download size, because the compiler is not packaged
+- faster rendering, since the client does not have to wait for the application to compile
+- inlining html template and CSS style sheets, reducing request to those files
 - [other things](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
 
 ```
@@ -70,7 +70,7 @@ vendor    111.0 kB
 
 ### Nginx & compression
 
-Gzip compression is activated by default during production compilation, but using an [Nginx webserver](https://nginx.org/en/) we can achieve even better performances thand using angular-cli server.
+Gzip compression is activated by default during production compilation, but using an [Nginx webserver](https://nginx.org/en/) we can achieve even better performances than using angular-cli server solution.
 
 * `ng build --prod`
 * copy content of your application _dist/_ folder inside _html/_ Nginx folder
@@ -98,6 +98,3 @@ main        2.4 kB
 vendor     70.4 kB
 ```
 
-### NodeJS
-
-We want to test if NodeJS influence...........
